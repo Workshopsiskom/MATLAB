@@ -1,0 +1,46 @@
+clc;
+clear;
+close all;
+
+% Parameter
+Am = 1;          % Amplitudo sinyal informasi
+Ac = 2;          % Amplitudo sinyal carrier
+fm = 5;          % Frekuensi sinyal informasi (Hz)
+fc = 50;         % Frekuensi sinyal carrier (Hz)
+fs = 1000;       % Frekuensi sampling (Hz)
+
+% Vektor waktu
+t = 0:____:1;
+
+% Sinyal informasi
+m = Am*cos(2*pi*____*t);
+
+% Sinyal carrier
+c = Ac*cos(2*pi*____*t);
+
+% Sinyal AM (DSB-FC)
+s = (Ac + Am*____).*cos(2*pi*fc*t);
+
+% Menampilkan grafik
+figure;
+
+subplot(____,1,1)
+plot(t,____,'b')
+title('Sinyal Informasi')
+xlabel('Waktu (s)')
+ylabel('Amplitudo')
+grid on
+
+subplot(3,1,____)
+plot(t,c,'r')
+title('Sinyal Carrier')
+xlabel('Waktu (s)')
+ylabel('Amplitudo')
+grid on
+
+subplot(3,1,3)
+plot(t,____,'k')
+title('Sinyal AM (DSB-FC)')
+xlabel('Waktu (s)')
+ylabel('Amplitudo')
+grid on
