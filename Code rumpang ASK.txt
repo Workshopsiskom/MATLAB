@@ -1,0 +1,89 @@
+clc;
+clear;
+close all;
+
+%% Data biner
+data = [1 0 1 1 0 0 1];
+
+%% Parameter
+A = 1;          % Amplitudo carrier
+fc = 5;         % Frekuensi carrier (Hz)
+Tb = 1;         % Durasi tiap bit (s)
+fs = 100;       % Frekuensi sampling (Hz)
+
+t = 0:1/fs:Tb-1/fs;
+
+carrier = [];
+data_signal = [];
+ask = [];
+
+%% Proses Modulasi ASK
+for i = 1:length(data)
+
+    % Rumpang 1
+    bit = data(i)*____(size(t));
+    data_signal = [data_signal bit];
+
+    % Rumpang 2
+    c = A*____(2*pi*fc*t);
+    carrier = [carrier c];
+
+    % Rumpang 3
+    ask = [ask ____];
+
+end
+
+%% Waktu total
+% Rumpang 4
+T = 0:1/fs:____*Tb-1/fs;
+
+N = length(ask);
+f = (-N/2:N/2-1)*(fs/N);
+
+%% FFT
+% Rumpang 5 dan 6
+ASK_fft = abs(____(____(ask))/N);
+
+%% Plot
+figure('Color','w')
+
+% Rumpang 7
+subplot(5,1,1)
+____(T,data_signal,'LineWidth',2)
+ylim([-0.2 1.2])
+grid on
+title('Sinyal Data')
+xlabel('Waktu (s)')
+ylabel('Amplitudo')
+
+subplot(5,1,2)
+plot(T,carrier,'r','LineWidth',1.2)
+grid on
+title('Sinyal Carrier')
+xlabel('Waktu (s)')
+ylabel('Amplitudo')
+
+subplot(5,1,3)
+plot(T,ask,'b','LineWidth',1.5)
+grid on
+title('Sinyal ASK')
+xlabel('Waktu (s)')
+ylabel('Amplitudo')
+
+subplot(5,1,4)
+plot(T,carrier,'--','Color',[0.7 0.7 0.7])
+hold on
+plot(T,ask,'b','LineWidth',1.5)
+grid on
+title('Perbandingan Carrier dan ASK')
+xlabel('Waktu (s)')
+ylabel('Amplitudo')
+legend('Carrier','ASK')
+
+% Rumpang 8, 9, 
+subplot(5,1,5)
+plot(____,____,'m','LineWidth',1.5)
+grid on
+title('Spektrum')
+xlabel('f')
+ylabel('Magnitude')
